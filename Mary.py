@@ -86,7 +86,8 @@ if __name__ == '__main__':
 
 
     say("Hello I am your assistant Mary")
-    while True:
+    a = True
+    while a:
         print("Listening...")
         query_1 = Instructions()
         #opening websites
@@ -95,6 +96,10 @@ if __name__ == '__main__':
             if f"Open {site[0]}".lower() in query_1.lower():
                 webbrowser.open(site[1])
                 say(f"Opening {site[0]}")
+        #exit
+        if "quit".lower() in query_1.lower():
+            a = False
+            say("OK see you later")
         #telling time
         if "the time" in query_1.lower():
             Time = datetime.datetime.now().time()
